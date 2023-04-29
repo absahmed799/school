@@ -13,13 +13,15 @@
         <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
+        <link  href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.0/mdb.min.css" rel="stylesheet">
         <link href="{{ asset('css/styles.css')}}" rel="stylesheet" />
     </head>
     <body id="page-top">
         <!-- Navigation-->
+        @php $lang =  session('locale') @endphp
         <nav class="navbar navbar-expand-lg navbar-light fixed-top " id="mainNav">
             <div class="container px-4 px-lg-5">
-                <a class="navbar-brand text-primary" href="/">Accueil</a>
+                <a class="navbar-brand text-primary" href="/maisonneuve">@lang('lang.text_Home')</a>
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
                     <i class="fas fa-bars"></i>
@@ -27,8 +29,13 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto">
                         
-                        <li class="nav-item"><a class="nav-link text-primary" href="/maisonneuve">Liste Des etudients</a></li>
-                        <li class="nav-item"><a class="nav-link text-primary" href="/maisonneuve-create">Ajouter Etudiant</a></li>
+                        <li class="nav-item"><a class="nav-link " href="/maisonneuve">@lang('lang.text_Liste-Student')</a></li>
+
+                        <li class="nav-item"><a class="nav-link " href="{{route('blog.index')}}">@lang('lang.text_Liste-blogs')</a></li>
+                        <li class="nav-item"><a class="nav-link " href="/maisonneuve-create">@lang('lang.text_Add-Student')</a></li>
+                        <a class="nav-link @if($lang=='fr') text-primary @endif" href="{{route('lang', 'fr')}}">Français <i class="flag flag-france"></i></a>
+                <a class="nav-link @if($lang=='en') text-primary @endif" href="{{route('lang', 'en')}}">English <i class="flag flag-united-states"></i></a>
+
                     </ul>
                 </div>
             </div>
@@ -54,7 +61,7 @@
                         <div class="card py-4 h-100">
                             <div class="card-body text-center">
                                 <i class="fas fa-envelope text-primary mb-2"></i>
-                                <h4 class="text-uppercase m-0">Email</h4>
+                                <h4 class="text-uppercase m-0">@lang('lang.text_email')</h4>
                                 <hr class="my-4 mx-auto" />
                                 <div class="small text-black-50"><a href="#!">hello@yourdomain.com</a></div>
                             </div>

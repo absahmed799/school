@@ -2,14 +2,14 @@
 @section('title', 'Student - Create')
 @section('content')
 
-
+@php $lang =  session('locale') @endphp
          <!-- Signup-->
          <section class="signup-section" id="signup">
             <div class="container px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5">
                     <div class="col-md-10 col-lg-8 mx-auto text-center">
                         <i class="far fa-paper-plane fa-2x mb-2 text-white"></i>
-                        <h2 class="text-white mb-5">Rempli les information Pour Ajouter un Etudient!</h2>
+                        <h2 class="text-white mb-5">@lang('lang.text_fill')</h2>
                         <!-- * * * * * * * * * * * * * * *-->
                         <!-- * * SB Forms Contact Form * *-->
                         <!-- * * * * * * * * * * * * * * *-->
@@ -21,12 +21,12 @@
                         @csrf
                             <!-- Email address input-->
                             <div class="row input-group-newsletter">
-                                <div class="col"><input class="form-control"  type="text" name="nom" placeholder="Entrez le nom d'etudient ."  /></div>
-                                <div class="col"><input class="form-control"  type="email" name="email" placeholder="Entrez l'address email."  /></div>
+                                <div class="col"><input class="form-control"  type="text" name="nom" placeholder="@lang('lang.text_sname')"  /></div>
+                                <div class="col"><input class="form-control"  type="email" name="email" placeholder="@lang('lang.text_semail')"  /></div>
                                 
                             </div>
                             <div class="row input-group-newsletter mt-3">
-                                <div class="col"><input class="form-control"  type="date" name="date_naissance" placeholder="Entrez le nom d'etudient ."  /></div>
+                                <div class="col"><input class="form-control"  type="date" name="date_naissance"   /></div>
                                 <div class="col"><select class="form-control " name="ville_id" >
                                 <option value="#"selected>Choisi ton pays</option>
                                     @foreach ($cities as $city)
