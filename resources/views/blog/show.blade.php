@@ -30,12 +30,14 @@
     <div class="col-md-4">
         <a href="{{ route('blog.show.pdf', $blogPost->id) }}" class="btn btn-warning btn-sm">PDF</a>
     </div>
+    @if ($blogPost->blogHasUser->id === Auth::id())
     <div class="col-md-4">
         <a href="{{ route('blog.edit', $blogPost->id) }}" class="btn btn-success btn-sm">Edit</a>
     </div>
     <div class="col-md-4">
         <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#modalDelete">Delete</button>
     </div>
+    @endif
 </div>
 
 <!-- Modal -->
